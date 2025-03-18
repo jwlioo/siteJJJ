@@ -1,0 +1,35 @@
+body {
+   margin: 0;
+   font-family: Arial, sans-serif;
+}
+.topbar {
+   background-color: #333;
+   color: white;
+   padding: 10px 20px;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   
+   
+}
+.topbar .login-btn {
+   position: absolute;
+   right: 20px;
+   top: 300%;
+   transform: translateY(-50%);
+   background-color: #4CAF50;
+   color: white;
+   padding: 8px 16px;
+   text-decoration: none;
+   border-radius: 5px;
+   font-size: 16px;
+}
+.topbar .login-btn:hover {
+   background-color: #45a049;
+}
+/* Adiciona um espaçamento para que o conteúdo da página não fique escondido atrás da topbar */
+.content {
+   padding-top: 10px;
+}
