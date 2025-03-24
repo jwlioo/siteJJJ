@@ -1,0 +1,72 @@
+package br.com.joalheriajoiasjoia.app.entities;
+
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_material")
+public class Material {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idMaterial", nullable = false)
+    private Long idMaterial;
+    
+    @Column(name = "nomeMaterial", nullable = false, length = 100)
+    private String nomeMaterial;
+    
+    @Column(name = "descricao", length = 255)
+    private String descricao;
+
+    @OneToMany(mappedBy = "material")
+    private List<Produto> produtos;
+
+    // Construtores
+    public Material() {
+    }
+
+    public Material(Long idMaterial, String nomeMaterial, String descricao) {
+        this.idMaterial = idMaterial;
+        this.nomeMaterial = nomeMaterial;
+        this.descricao = descricao;
+    }
+
+    // Getters e Setters
+    public Long getIdMaterial() {
+        return idMaterial;
+    }
+
+    public void setIdMaterial(Long idMaterial) {
+        this.idMaterial = idMaterial;
+    }
+
+    public String getNomeMaterial() {
+        return nomeMaterial;
+    }
+
+    public void setNomeMaterial(String nomeMaterial) {
+        this.nomeMaterial = nomeMaterial;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+}
